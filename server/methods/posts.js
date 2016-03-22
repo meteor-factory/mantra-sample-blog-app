@@ -26,12 +26,13 @@ export default function () {
       check(text, String);
 
       // Show the latency compensations
-      Meteor._sleepForMs(500);
+      Meteor._sleepForMs(2000);
 
       // XXX: Do some user authorization
       const createdAt = new Date();
       const author = 'The User';
-      const comment = {_id, postId, author, text, createdAt};
+      const upvoteCount = 0;
+      const comment = {_id, postId, author, text, createdAt, upvoteCount};
       Comments.insert(comment);
     }
   });

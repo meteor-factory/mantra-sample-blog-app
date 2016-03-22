@@ -4,8 +4,14 @@ export default function ({Collections, Meteor}) {
       const saving = true;
       const createdAt = new Date();
       const author = 'Me';
+      const upvoteCount = 0;
       Collections.Comments.insert({
-        _id, postId, text, saving, createdAt, author
+        _id, postId, text, saving, upvoteCount, createdAt, author
+      });
+    },
+    'comments.upvote'(_id) {
+      Collections.Comments.update(_id, {
+        $inc: {upvoteCount: 1}
       });
     }
   });
